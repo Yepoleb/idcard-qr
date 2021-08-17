@@ -1,6 +1,6 @@
 # Austrian ID Card QR Code
 
-This document aims to be a complete documentation of the format used in the QR area on the back of new Austrian ID cards (Personalausweis) issued after 2nd of August 2021. The launch was acompanied by the introduction of the CHECK-AT app to cryptographically verify the data contained in the code. Unfortunately there is no public documentation of its format and the app is proprietary and obfuscated. The official website claims an open source release is being evaluated, but considering the technology is developed by a private company, youniqx Identity AG, which wants to sell it to other countries as well, I don't believe it will ever happen. I want publicly funded technology to be open source though, so I decided to make my own documentation, hoping anyone who's good at app development will pick it up and make an app.
+This document aims to be a complete documentation of the format used in the QR area on the back of new Austrian ID cards (Personalausweis) issued after 2nd of August 2021. The launch was acompanied by the introduction of the CHECK-AT app to cryptographically verify the data contained in the code. Unfortunately there is no public documentation of its format and the app is proprietary and obfuscated. The official website claims an open source release is being evaluated, but considering the technology is developed by a private company, youniqx Identity AG, which wants to sell it to other countries as well, I don't believe it will ever happen. I want publicly funded technology to be open source though, so I decided to make my own documentation, hoping anyone who's good at app development will pick it up and make one.
 
 ## Sections of the QR Code
 
@@ -40,7 +40,7 @@ Example request:
 curl -H "x-api-key: 1Rrt0JmIUyHM6ARj" https://api.check-at.at/api/v1/certificates
 ```
 
-### /ready
+### /api/v1/ready
 
 I don't really know what the point of this is. It just returns a success value.
 
@@ -52,7 +52,7 @@ Example response:
 {"success": true}
 ```
 
-### /certificates
+### /api/v1/certificates
 
 This endpoint returns the certificate data used to verify the signatures. The example response only lists one certificate, but there are multiple.
 
@@ -66,7 +66,7 @@ Full URL: https://api.check-at.at/api/v1/certificates
 }]
 ```
 
-### /documents
+### /api/v1/documents
 
 Returns some kind of document directory. At the time of writing only has one entry.
 
@@ -80,7 +80,7 @@ Full URL: https://api.check-at.at/api/v1/documents
 }]
 ```
 
-### steps/1
+### /api/v1/steps/1
 
 Lists the steps to manually check the ID card by the person using the app. It's unclear why this is even loaded because the content is unlikely to change so rapidly that it would warrant building an API for it.
 
