@@ -37,14 +37,14 @@ Intercepting the web traffic by the app there were a few API endpoints of which 
 Example request:
 
 ```sh
-curl -H "x-api-key: 1Rrt0JmIUyHM6ARj" https://api.check-at.at/api/v1/certificates
+curl -H "x-api-key: 1Rrt0JmIUyHM6ARj" https://api.check-at.gv.at/api/v1/certificates
 ```
 
 ### /api/v1/ready
 
 I don't really know what the point of this is. It just returns a success value.
 
-Full URL: https://api.check-at.at/api/v1/ready
+Full URL: https://api.check-at.gv.at/api/v1/ready
 
 Example response:
 
@@ -56,7 +56,7 @@ Example response:
 
 This endpoint returns the certificate data used to verify the signatures. The example response only lists one certificate, but there are multiple.
 
-Full URL: https://api.check-at.at/api/v1/certificates
+Full URL: https://api.check-at.gv.at/api/v1/certificates
 
 ```json
 [{
@@ -70,7 +70,7 @@ Full URL: https://api.check-at.at/api/v1/certificates
 
 Returns some kind of document directory. At the time of writing only has one entry.
 
-Full URL: https://api.check-at.at/api/v1/documents
+Full URL: https://api.check-at.gv.at/api/v1/documents
 
 ```json
 [{
@@ -84,7 +84,7 @@ Full URL: https://api.check-at.at/api/v1/documents
 
 Lists the steps to manually check the ID card by the person using the app. It's unclear why this is even loaded because the content is unlikely to change so rapidly that it would warrant building an API for it.
 
-Full URL: https://api.check-at.at/api/v1/steps/1
+Full URL: https://api.check-at.gv.at/api/v1/steps/1
 
 No example provided because it would take up too much space.
 
@@ -141,7 +141,7 @@ python3 verifydata.py qt_data.txt
 
 ## OpenSSL usage
 
-OpenSSL can use the original certificates without conversion. To try it modify the example to write `sign_data` to a binary file. I'll call it `sign_data.bin` in this example. Then convert the signature to DER which can be done using the following code and write it also to a file.
+OpenSSL can use the original certificates without conversion. To try it, modify the example to write `sign_data` to a binary file. I'll call it `sign_data.bin` in this example. Then convert the signature to DER which can be done using the following code and write it also to a file.
 
 ```py3
 import ecdsa.util
