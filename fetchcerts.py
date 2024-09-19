@@ -4,7 +4,7 @@ import urllib.request
 import json
 import os
 
-CERTIFICATES_URL = "https://api.check-at.gv.at/api/v1/certificates"
+CERTIFICATES_URL = "https://api.check-at.gv.at/api/v2/certificates"
 HEADERS = {"x-api-key": "1Rrt0JmIUyHM6ARj"}
 
 OPENSSL_CMD_TEMPL = (
